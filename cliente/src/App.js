@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import SearchBar from './SearchBar.js';
 import ProductList from './ProductList.js';
 import ProductDetail from './ProductDetail.js';
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 import './App.scss';
 
 class App extends Component {

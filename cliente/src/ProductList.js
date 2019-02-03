@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import ReactLoading from 'react-loading';
-import shipIcon from './assets/envio.png';
-import NumberFormat from 'react-number-format';
-import { Link } from 'react-router-dom';
+import Product from './Product.js';
 
 
 class ProductList extends Component {
@@ -50,29 +48,10 @@ class ProductList extends Component {
             ) 
         }
 
-        // for each element in the api response, returns a html container
-        const products = this.state.products.items.map(function(p) {
+        // for each element in the api response, returns a Product component
+        const products = this.state.products.items.map(function(product) {
             return (
-                <Link to={'/items/'+p.id} key={p.id}>
-                    <div className='prod-cont'>
-                        <div className='prod-img'>
-                            <img src={p.picture}/>
-                        </div>
-                        <div className='prod-info'>
-                            <div className='price-title'>
-                                <h2>
-                                    <span>$ </span> <NumberFormat value={p.price.amount} thousandSeparator={true} displayType={'text'}/>
-                                    {p.price.decimals !== '0' && <span className='decimals'>{p.price.decimals}</span>}
-                                    {p.free_shipping === true && <span><img src={shipIcon}/></span>}
-                                </h2>
-                                <p>{p.title}</p>
-                            </div>
-                            <div className='city'>
-                                <p>{p.location}</p>
-                            </div>
-                        </div>
-                    </div>
-                </Link>
+                <Product products={product}></Product>
             )
         })
 
