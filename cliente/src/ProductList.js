@@ -51,7 +51,7 @@ class ProductList extends Component {
         // for each element in the api response, returns a Product component
         const products = this.state.products.items.map(function(product) {
             return (
-                <Product products={product}></Product>
+                <Product products={product}/>
             )
         })
 
